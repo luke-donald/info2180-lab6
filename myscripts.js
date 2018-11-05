@@ -10,8 +10,9 @@ window.onload = function() {
 
 function printDefn(){
     
+    var searchWord = document.getElementById("textbox").value;
     var httpRequest = new XMLHttpRequest();
-    var url = "https://info2180-lab6-lukedonald.c9users.io/request.php?q=definition";
+    var url = "https://info2180-lab6-lukedonald.c9users.io/request.php?q=" + searchWord;
     
     httpRequest.onreadystatechange = function(){
         
@@ -19,7 +20,9 @@ function printDefn(){
             
             if (httpRequest.status === 200) {
                 var response = httpRequest.responseText;
-                alert(response);
+                document.getElementById("test").innerHTML = "hello testing output";
+                document.getElementById("result").innerHTML = response;
+                //alert(response);
                 
             } else {
                 alert('There was a problem with the request.');
